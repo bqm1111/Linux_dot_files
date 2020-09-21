@@ -30,7 +30,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
-Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " Buffer prev/next
