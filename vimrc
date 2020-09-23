@@ -23,6 +23,7 @@ set splitright
 
 " ============== Install Plugin ==========================
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -33,8 +34,13 @@ call plug#end()
 syntax on
 let mapleader=" "
 " Set colorscheme
-set background=dark
-colorscheme solarized8
+
+let g:seoul256_background = 235
+colo seoul256
+"set background=dark
+"colorscheme solarized8
+
+autocmd Filetype * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Buffer prev/next
 nnoremap <C-x> :bnext<CR>
 nnoremap <C-z> :bprev<CR>
