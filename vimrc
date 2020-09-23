@@ -1,5 +1,10 @@
 " Basic setting
 set nocompatible
+set encoding=utf-8
+" Enable autocompletion
+set wildmode=longest,list,full
+
+" Turn off some weird character to show up
 set t_TI= t_TE=
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -33,12 +38,13 @@ Plug 'zxqfl/tabnine-vim'
 call plug#end()
 syntax on
 let mapleader=" "
+" Goyo plugin to make text more readable
+map <leader>g :Goyo \| set linebreak<CR>
 " Set colorscheme
-
-let g:seoul256_background = 235
-colo seoul256
-"set background=dark
-"colorscheme solarized8
+"let g:seoul256_background = 235
+"colo seoul256
+set background=dark
+colorscheme solarized8
 
 autocmd Filetype * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Buffer prev/next
@@ -74,3 +80,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" FINDING FILES
+" Search down into subfolders
+" Provides tab-completetion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
