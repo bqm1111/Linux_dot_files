@@ -1,3 +1,17 @@
+
+" ============== Install Plugin ==========================
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'zxqfl/tabnine-vim'
+call plug#end()
+
+
+
 " Basic setting
 set nocompatible
 set encoding=utf-8
@@ -21,21 +35,14 @@ set incsearch
 set number
 set relativenumber
 set showcmd
-set colorcolumn=80
+set colorcolumn=88
 set splitbelow 
 set splitright
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-" ============== Install Plugin ==========================
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'zxqfl/tabnine-vim'
-call plug#end()
+set tags=tags
+" TAG JUMPING
+" Create the `tag` file (may need to install ctags first)
+command! MakeTags !ctags -R .
 syntax on
 let mapleader=" "
 " Goyo plugin to make text more readable
@@ -88,3 +95,7 @@ set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
+
+
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
