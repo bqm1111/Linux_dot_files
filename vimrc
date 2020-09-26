@@ -99,3 +99,10 @@ set wildmenu
 
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" Copy and paste
+
+vnoremap <C-c> "+y
+map <C-p> "+p
+map <C-a> ggVG
+
