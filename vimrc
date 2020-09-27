@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
@@ -35,7 +36,7 @@ set incsearch
 set number
 set relativenumber
 set showcmd
-set colorcolumn=88
+" set colorcolumn=88
 set splitbelow 
 set splitright
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -96,13 +97,42 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-
+" Python setup
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-
 " Copy and paste
-
+" Copy a line
+noremap <C-l> 0V$"+y
 vnoremap <C-c> "+y
-map <C-p> "+p
+map <C-p> "+p$<Esc>
 map <C-a> ggVG
 
+" Insert a new line without leaving normal mode
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
+" NerdCommentor setting
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
