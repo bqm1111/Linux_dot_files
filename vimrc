@@ -112,7 +112,8 @@ nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
 " NerdCommentor setting
-
+map <leader>r <plug>NERDCommenterComment
+map <leader>t <plug>NERDCommenterUncomment
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
