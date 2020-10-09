@@ -153,8 +153,8 @@ autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 " Copy and paste
 " Copy a line to clipboard 
-noremap <C-l> 0V$"+y
-inoremap <C-l> <esc>0V$"+y
+noremap <C-0> 0V$"+y
+inoremap <C-0> 1V$> <esc>0V$"+y
 vnoremap <C-c> "+y
 map <C-p> "+p$<Esc>
 map <C-a> ggVG
@@ -190,4 +190,9 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
+" ============  Fuzzy Finder ==================
+
+map <C-f> <Esc><Esc>:Files<CR>
+inoremap <C-f> <Esc><Esc>:Blines<CR>
+map <C-g> <Esc><Esc>:BCommits<CR>
 
