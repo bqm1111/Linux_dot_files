@@ -8,6 +8,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'preservim/nerdtree'
 Plug 'zxqfl/tabnine-vim'
 Plug 'tpope/vim-fugitive'
@@ -56,6 +57,7 @@ map <leader>g :Goyo \| set linebreak<CR>
 "let g:seoul256_background = 235
 "colo seoul256
 set background=dark
+" let g:solarized_termcolors=256
 colorscheme solarized8
 " vim-airline
 let g:airline_theme = 'powerlineish'
@@ -153,8 +155,8 @@ autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 " Copy and paste
 " Copy a line to clipboard 
-noremap <C-0> 0V$"+y
-inoremap <C-0> 1V$> <esc>0V$"+y
+noremap <C-c> 0V$"+y
+inoremap <C-c> 1V$> <esc>0V$"+y
 vnoremap <C-c> "+y
 map <C-p> "+p$<Esc>
 map <C-a> ggVG
